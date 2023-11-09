@@ -37,43 +37,32 @@ opencsv-5.5.2.jar: The OpenCSV library for reading and writing CSV files. You'll
 
 here is simplified implementation
 ```
-// SmartCitySimulation.java
 public class SmartCitySimulation {
     public static void main(String[] args) {
         TrafficManagement trafficManagement = new TrafficManagement();
         SmartLighting smartLighting = new SmartLighting();
         EnvironmentalMonitoring environmentalMonitoring = new EnvironmentalMonitoring();
 
-        // Start simulation components
-        trafficManagement.start();
-        smartLighting.start();
-        environmentalMonitoring.start();
+        // Start simulation components using multithreading
+        Thread trafficThread = new Thread(trafficManagement);
+        Thread lightingThread = new Thread(smartLighting);
+        Thread monitoringThread = new Thread(environmentalMonitoring);
+
+        trafficThread.start();
+        lightingThread.start();
+        monitoringThread.start();
+
+        // Add exception handling for each component
+        try {
+            trafficThread.join();
+            lightingThread.join();
+            monitoringThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 
-// TrafficManagement.java
-public class TrafficManagement {
-    public void start() {
-        // Implement traffic management logic
-        // Read traffic data from CSV, control traffic lights, etc.
-    }
-}
-
-// SmartLighting.java
-public class SmartLighting {
-    public void start() {
-        // Implement smart lighting logic
-        // Adjust street light brightness based on sensor data and time of day
-    }
-}
-
-// EnvironmentalMonitoring.java
-public class EnvironmentalMonitoring {
-    public void start() {
-        // Implement environmental monitoring logic
-        // Monitor air quality, noise levels, temperature, etc.
-    }
-}
 
 ```
 You'll need to add logic to read and process the data from the CSV file, simulate traffic flow, control street lights, and monitor environmental conditions based on your specific requirements.
