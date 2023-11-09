@@ -1,7 +1,7 @@
 # SmartCity
 This mini project will include simulated components for smart traffic management, smart lighting, and environmental monitoring. You can expand and customize it according to your needs.
 Here's a high-level overview of the project structure:
-
+```
 SmartCitySimulation
 │
 ├── src
@@ -19,6 +19,7 @@ SmartCitySimulation
 │   ├── opencsv-5.5.2.jar
 │
 └── README.md
+```
 
 Here's a breakdown of the components:
 
