@@ -196,7 +196,7 @@ public class Sensor {
 
     @Override
     public String toString() {
-        return "Sensor Type: " + sensorType + ", Current Value: " + currentValue;
+        //to do
     }
 }
 ```
