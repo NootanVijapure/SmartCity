@@ -66,3 +66,68 @@ public class SmartCitySimulation {
 
 ```
 You'll need to add logic to read and process the data from the CSV file, simulate traffic flow, control street lights, and monitor environmental conditions based on your specific requirements.
+
+1. TrafficManagement.java: Simulates smart traffic management, including traffic lights, congestion detection, and rerouting of vehicles. It will demonstrate collections and input/output for reading data from a CSV file.
+```
+   import java.util.List;
+
+public class TrafficManagement implements Runnable {
+    private List<Vehicle> vehicles;
+
+    public void run() {
+        // Read traffic data from CSV
+        // Implement traffic management logic using collections
+        // Handle exceptions for I/O operations
+    }
+}
+```
+
+2. SmartLighting.java: Simulates smart lighting in the city, where street lights adjust their brightness based on the time of day and sensor data. It will demonstrate time handling.
+ ```
+
+```
+4. EnvironmentalMonitoring.java: Simulates environmental monitoring, including air quality, noise levels, and temperature. It will demonstrate loops and time handling.
+```
+```
+5.  Vehicle.java: Represents a vehicle in the simulation
+```
+```
+7.  Sensor.java: Represents a sensor used for environmental monitoring
+   import java.util.Random;
+```
+public class Sensor {
+    private String sensorType;
+    private double currentValue;
+
+    public Sensor(String sensorType) {
+        this.sensorType = sensorType;
+        this.currentValue = 0.0;
+    }
+
+    public void measure() {
+        // Simulate measuring data by generating random values
+        Random rand = new Random();
+
+        if ("Air Quality".equals(sensorType)) {
+            currentValue = rand.nextDouble() * 100; // Random value between 0 and 100
+        } else if ("Noise Level".equals(sensorType)) {
+            currentValue = rand.nextDouble() * 120; // Random value between 0 and 120 (in decibels)
+        } else if ("Temperature".equals(sensorType)) {
+            currentValue = rand.nextDouble() * 40 - 10; // Random value between -10 and 30 degrees Celsius
+        }
+    }
+
+    public double getCurrentValue() {
+        return currentValue;
+    }
+
+    public String getSensorType() {
+        return sensorType;
+    }
+
+    @Override
+    public String toString() {
+        return "Sensor Type: " + sensorType + ", Current Value: " + currentValue;
+    }
+}
+```
